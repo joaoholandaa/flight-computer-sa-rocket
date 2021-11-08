@@ -31,6 +31,7 @@ void setup()
    Serial.println("Falha ao conectar o cartao!");
    return;
   }
+  Serial.println("O cartão foi conectado!");
   Serial.println();
 }
 
