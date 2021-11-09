@@ -53,7 +53,7 @@ void loop()
   Serial.print(" , "); Serial.print(tempc);
   Serial.print(" , "); Serial.println(pressure);
 
-  File dataFile = SD.open("aa.txt", FILE_WRITE);
+  File dataFile = SD.open("datalog.txt", FILE_WRITE);
   if(dataFile)
   {
     dataFile.print(tempoInicio/1000);
