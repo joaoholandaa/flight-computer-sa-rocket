@@ -15,6 +15,7 @@ int16_t ax, ay, az;
 int16_t gx, gy, gz;
 int vall;
 int prevVall;
+int buzzer = 8;
 float tempc;
 float pressure;
 Servo servo1;
@@ -26,6 +27,7 @@ void setup()
   Wire.begin();
   mpu.initialize();
   servo1.attach(9);
+  pinMode(buzzer, OUTPUT);
   if(!SD.begin(chipSelect))
   {
    Serial.println("Falha ao conectar o cartao!");
@@ -37,6 +39,7 @@ void setup()
 
 void loop() 
 {
+  tone(buzzer, 2500, 100);
   tempoInicio = millis();
   mpu.getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
   tempc = mySensor.readTemperature(); 
